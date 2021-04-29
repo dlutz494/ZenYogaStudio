@@ -1,0 +1,20 @@
+﻿@using YogaStudio.App.Models.ViewModels
+@model IEnumerable<UserViewModel>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="container">
+    <div class="row">
+        <h1 class="page-header">@ViewBag.Title</h1>
+        @if (Model == null || Model.Count() == 0)
+        {
+            <p>There are no users that match your search criteria.</p>
+        }
+        else
+        {
+            @Html.DisplayFor(user => user)
+        }
+    </div>
+</div>

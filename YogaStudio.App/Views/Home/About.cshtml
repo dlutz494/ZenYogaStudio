@@ -1,0 +1,29 @@
+﻿@model YogaStudio.App.Models.EntityModels.About
+
+@{
+    ViewBag.Title = "About";
+}
+
+<div class="about">
+    @if (Model != null && Model.Title != "" && Model.Title != null)
+    {
+        <h2>@Model.Title</h2>
+    }
+    else
+    {
+        <h2>@ViewBag.Title</h2>
+    }
+
+    @if (Model != null && Model.Description != "" && Model.Description != null)
+    {
+        <p>@Model.Description</p>
+    }
+    
+
+    @if (Model != null && !Model.Image.IsEmpty())
+    {
+        <img src="@Model.Image" alt="Image" />
+    }
+</div>
+
+

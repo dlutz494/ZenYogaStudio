@@ -1,0 +1,20 @@
+﻿@model YogaStudio.App.Models.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "UserViewModel";
+}
+
+<table class="table">
+    <tr>
+        <td>
+            @Model.UserName
+        </td>
+        @*@if (!Roles.IsUserInRole(Model.UserName, "Trainner"))
+        {*@
+        <td>
+            @Html.ActionLink("Make Trainner", "MakeTrainner", new { userId = Model.Id })
+        </td>
+        @* } *@
+    </tr>
+</table>
+

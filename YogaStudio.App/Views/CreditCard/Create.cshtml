@@ -1,0 +1,16 @@
+﻿@model YogaStudio.App.Models.EntityModels.CreditCard
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@{
+    ViewBag.Title = "Credit Card";
+    Html.RenderPartial("_CreditCardCreatePartial", Model);
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

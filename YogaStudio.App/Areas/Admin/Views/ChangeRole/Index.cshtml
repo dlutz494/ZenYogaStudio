@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Change Role";
+}
+
+<h2>@ViewBag.Title</h2>
+<a>@Html.ActionLink("Admin Controls", "Index", "Home")</a>
+@using (Html.BeginForm("Search", "ChangeRole", FormMethod.Get, new { area = "admin" }))
+{
+    <div class="input-group" style="margin-bottom: 10px;">
+        @Html.TextBox("userName", ViewBag.currentFilter as string, new { @class = "form-control", placeholder = "Search by user name" })
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Search</button>
+        </span>
+    </div>
+}

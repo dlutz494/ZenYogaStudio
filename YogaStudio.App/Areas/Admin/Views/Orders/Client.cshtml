@@ -1,0 +1,30 @@
+﻿@using YogaStudio.App.Models.ViewModels
+@model UserViewModel
+@{
+    ViewBag.Title = "Client info";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr>
+<strong>@Html.DisplayNameFor(m => m.FirstName):</strong>
+@Html.DisplayFor(m => m.FirstName)
+<br>
+<strong>@Html.DisplayNameFor(m => m.LastName):</strong>
+@Html.DisplayFor(m => m.LastName)
+<br>
+<strong>@Html.DisplayNameFor(m => m.Height):</strong>
+@Html.DisplayFor(m => m.Height)
+<br>
+<strong>@Html.DisplayNameFor(m => m.Weight):</strong>
+@Html.DisplayFor(m => m.Weight)
+<br>
+<strong>@Html.DisplayNameFor(m => m.Email):</strong>
+@Html.DisplayFor(m => m.Email)
+<br>
+<strong>@Html.DisplayNameFor(m => m.PhoneNumber):</strong>
+@Html.DisplayFor(m => m.PhoneNumber)
+<br>
+<br>
+@Html.ActionLink("Back to orders", "Index", "Orders", routeValues: new { area = "Admin" }, htmlAttributes: new { @class = "btn btn-danger" })
+<br>
+

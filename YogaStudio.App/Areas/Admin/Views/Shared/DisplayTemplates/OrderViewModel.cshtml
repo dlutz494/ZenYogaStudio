@@ -1,0 +1,23 @@
+﻿@using YogaStudio.App.Models.Enums
+@model YogaStudio.App.Models.ViewModels.OrderViewModel
+
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.DateOfOrder</td>
+    <td>@Html.ActionLink("client", "Client", "Orders", new { area = "Admin", id = Model.Id }, null)</td>
+    <td>@Html.ActionLink("packages", "Packages", "Orders", new { area = "Admin", id = Model.Id }, null)</td>
+    @if (Model.CreditCardId > 0)
+    {
+        <td>Credit Card</td>
+    }
+    else if (Model.CreditCardId == 0 && Model.TotalPrice == 0)
+    {
+        <td>Unknown</td>
+    }
+    else
+    {
+        <td>Cash</td>
+    }
+    <td>$@Model.TotalPrice</td>
+    <td>@Model.Status</td>
+</tr>

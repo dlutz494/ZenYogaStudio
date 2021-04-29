@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.App", "YogaStudio.App\YogaStudio.App.csproj", "{B858911F-6EB6-4609-B396-28EECEBE6A38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.Tests", "YogaStudio.Tests\YogaStudio.Tests.csproj", "{65ED5E12-5E5A-4396-BCCA-88445CE9B0E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B858911F-6EB6-4609-B396-28EECEBE6A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B858911F-6EB6-4609-B396-28EECEBE6A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B858911F-6EB6-4609-B396-28EECEBE6A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B858911F-6EB6-4609-B396-28EECEBE6A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65ED5E12-5E5A-4396-BCCA-88445CE9B0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65ED5E12-5E5A-4396-BCCA-88445CE9B0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65ED5E12-5E5A-4396-BCCA-88445CE9B0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65ED5E12-5E5A-4396-BCCA-88445CE9B0E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99196AD3-B808-4DDC-A063-41D7474D6988}
+	EndGlobalSection
+EndGlobal

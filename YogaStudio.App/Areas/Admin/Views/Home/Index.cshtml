@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Admin Controls";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <div class="buttonMenu">
+        <a>@Html.ActionLink("Change Client Roles", "Index", "ChangeRole")</a><br />
+        <a>@Html.ActionLink("Manage Courses", "Index", "Courses")</a><br />
+        <a>@Html.ActionLink("Manage Packages", "Index", "Packages")</a><br />
+        <a>@Html.ActionLink("Manage Addresses", "Index", "Addresses")</a><br />
+        <a>@Html.ActionLink("Manage Videos", "Index", "Videos")</a><br />
+        <a>@Html.ActionLink("Modify About Page", "Index", "Abouts")</a><br />
+        <a>@Html.ActionLink("Modify Contact Page", "Index", "Contacts")</a><br />
+        <a>@Html.ActionLink("View Orders", "Index", "Orders")</a><br />
+    </div>
+</div>

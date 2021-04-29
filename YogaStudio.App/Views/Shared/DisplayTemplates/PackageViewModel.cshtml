@@ -1,0 +1,45 @@
+﻿@using YogaStudio.App.Extensions
+@model YogaStudio.App.Models.ViewModels.PackageViewModel
+
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        @Html.Image(Model.Image, "package")
+        <div class="caption">
+            <h3>@Model.Name</h3>
+            <p>@Model.Description</p>
+            <p>Number of Courses: @Model.Courses.Count()</p>
+            @if (Model.Trainner != null) {
+            <p>Trainner: @Model.Trainner.UserName</p>
+            <p>Trainner Availability:</p>
+            
+            foreach (var availability in Model.Trainner.TrainnerAvailabilities)
+            {
+                <p>@availability.Id. From: @availability.From - To: @availability.To</p>
+            }
+            }
+            <h3 style="display: flex; justify-content: space-between;"><span style="color: red;">$@Model.Price</span></h3>
+            @if (Request.IsAuthenticated && !User.IsInRole("Admin") && !User.IsInRole("Trainner"))
+            {
+                @Ajax.ActionLink("Buy", "AddPackage", "Orders", new { area = "", id = Model.Id }, new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    LoadingElementId = "productToCart",
+                    LoadingElementDuration = 1500
+                }, new { @class = "btn btn-primary" })
+
+
+                @Html.ActionLink("Details", "Details", "Packages", new { area = "", packageId = Model.Id }, new { @class = "btn btn-primary" })
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <p>
+                    @Html.ActionLink("Edit", "Edit", "Packages", routeValues: new { area = "Admin", id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", "Packages", routeValues: new { area = "Admin", id = Model.Id }, htmlAttributes: new { @class = "btn btn-danger" })
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+
+

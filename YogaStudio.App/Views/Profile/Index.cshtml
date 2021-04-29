@@ -1,0 +1,70 @@
+﻿@using YogaStudio.App.Extensions
+@using YogaStudio.App.Models.ViewModels
+@model UserViewModel
+@{
+    ViewBag.Title = "User profile";
+}
+<div class="profile container">
+    <h1 style="text-align: center;">@ViewBag.Title</h1>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Model.UserName</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            @if (Model.ProfilePicture == null)
+                            {
+                                @Html.CustomImage("http://bcdcog.com/wp-content/uploads/2016/05/profile-default-02.png", "User image", "img-circle img-responsive")
+                            }
+                            else
+                            {
+                                @Html.CustomImage(Model.ProfilePicture, "User image", "img-circle img-responsive")
+                            }
+                        </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr *ngIf="profile.firstname">
+                                        <td>First Name</td>
+                                        <td>@Model.FirstName</td>
+                                    </tr>
+                                    <tr *ngIf="profile.lastname">
+                                        <td>Last Name</td>
+                                        <td>@Model.LastName</td>
+                                    </tr>
+                                    <tr *ngIf="profile.email">
+                                        <td>Email</td>
+                                        <td>@Model.Email</td>
+                                    </tr>
+                                    <tr *ngIf="profile.phone">
+                                        <td>Phone Number</td>
+                                        <td>@Model.PhoneNumber</td>
+                                    </tr>
+                                    <tr *ngIf="profile.height">
+                                        <td>Height</td>
+                                        <td>@Model.Height</td>
+                                    </tr>
+                                    <tr *ngIf="profile.weight">
+                                        <td>Weight</td>
+                                        <td>@Model.Weight</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @Html.ActionLink("Edit your profile", "Edit", "Profile", new { area = "" }, new { @class = "btn btn-primary" })
+                            @if (!User.IsInRole("Admin") && !User.IsInRole("Trainner"))
+                            {
+                                @Html.ActionLink("My orders", "MyOrders", "Profile", new { area = "" }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Mailing Address", "MailingAddress", "Profile", new { area = "" }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Credit Cards", "Index", "CreditCard", new { area = "" }, new { @class = "btn btn-primary" })
+                                @*@Html.ActionLink("Change Password", "ChangePassword", "Account", new { area = "" }, new { @class = "btn btn-primary" })*@
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

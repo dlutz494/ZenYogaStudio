@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Zen Yoga Studio</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Home", new { area = "Admin" }, null)</li>
+                    }
+                    @if (User.IsInRole("Trainner"))
+                    {
+                        <li>@Html.ActionLink("Trainer", "Index", "Home", new { area = "Trainner" }, null)</li>
+                    }
+                    <li>@Html.ActionLink("Packages", "Index", "Packages")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer class="footer-distributed">
+            <div class="footer-left">
+                <h3>Zen Yoga Studio</h3>
+                <p class="footer-links">
+                    @Html.ActionLink("Home", "Index", "Home")
+                    ·
+                    @Html.ActionLink("Packages", "Index", "Packages")
+                    ·
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Admin", "Index", "Home", routeValues: new { area = "Admin" }, htmlAttributes: null)
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Shopping cart", "Index", "orders")
+                    }
+                </p>
+                <p class="footer-company-name">&copy; @DateTime.Now.Year - Zen Yoga Studio</p>
+            </div>
+            <div class="footer-center">
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>108 University Ave.</span> Waterloo, Ontario</p>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>519-123-4567</p>
+                </div>
+
+            </div>
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>About the company</span>
+                    The Best Yoga Classes in
+                    The KW Region Providing All New Yoga Classes
+                </p>
+
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

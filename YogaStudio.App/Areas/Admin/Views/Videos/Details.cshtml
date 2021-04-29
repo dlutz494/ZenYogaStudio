@@ -1,0 +1,65 @@
+﻿@model YogaStudio.App.Models.EntityModels.Video
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Video</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoURL)
+        </dt>
+
+        <dd>
+            <iframe id="video" width="420" height="315" style="display: none;"></iframe>
+            <div style="cursor: pointer;" onclick="myFunction()">@Html.DisplayFor(model => model.VideoURL)</div>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs...​"></script>
+<script type="text/javascript">
+    function myFunction() {
+        console.log($("#video​"));
+        var frame = document.getElementById("video");
+        console.log(frame);
+        var url = @Html.Raw(Json.Encode(Model.VideoURL));
+        url = url.split('v=')[1];
+        var url = "//www.youtube.com/embed/" + url;
+        frame.src = url;
+        frame.style.display = "block";
+    }
+</script>

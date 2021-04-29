@@ -1,0 +1,40 @@
+﻿@using YogaStudio.App.Models.ViewModels
+@model AddressViewModel
+@{
+    ViewBag.Title = "Mailing Address";
+    Html.RenderPartial("_MailingAddressPartial", Model);
+}
+
+@section scripts {
+    <script>
+        $(function () {
+            var value = $('.country').val();
+            console.log(value);
+            if (value == 1) {
+                $('.state').hide();
+                $('.province').show();
+            } else if (value == 2) {
+                $('.state').show();
+                $('.province').hide();
+            } else {
+                $('.state').hide();
+                $('.province').hide();
+            }
+            $('.country').change(function () {
+                var self = $(this);
+                var value = self.val();
+                console.log(value);
+                if (value == 1) {
+                    $('.state').hide();
+                    $('.province').show();
+                } else if (value == 2) {
+                    $('.state').show();
+                    $('.province').hide();
+                } else {
+                    $('.state').hide();
+                    $('.province').hide();
+                }
+            });
+        });
+    </script>
+}
